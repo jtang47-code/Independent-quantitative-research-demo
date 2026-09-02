@@ -959,7 +959,7 @@ var dailySnapshots = [
             <div class="case-toolbar"><span class="case-kicker">Research demo / 01</span><a class="case-back" href="#home" data-route="home">Back to method <span>&larr;</span></a></div>
             <div class="case-title-row">
               <h1>Premarket-to-Intraday Ranking</h1>
-              <p>Long-only cross-sectional ranking using pre-open information across current S&amp;P 500 membership .</p>
+              <p>This long-only S&amp;P 500 study ranks stocks using information available before the open and measures their regular-hours return. It is built around the premise that relative premarket weakness predicts a same-day recovery: overnight trading is thinner and more imbalanced, allowing temporary selling pressure to move prices away from levels supported by broader participation; when regular-hours liquidity returns, part of that pressure can unwind.</p>
             </div>
             <div class="case-facts">
               <div class="case-fact"><span>Evaluation period</span><strong>2023-01-04 &mdash; 2026-08-20</strong></div>
@@ -979,7 +979,7 @@ var dailySnapshots = [
                 <div class="case-chart-legend"><span class="case-legend-strategy">Premarket-to-Intraday Ranking</span><span class="case-legend-benchmark">SPY</span></div>
                 <div class="case-chart-frame"><canvas id="case-equity-chart" role="img" aria-label="Daily equity curve comparing Premarket-to-Intraday Ranking with SPY"></canvas></div>
               </div>
-              <aside class="case-summary-panel"><div class="case-summary-label">Final wealth</div><div class="case-summary-value">5.29<span>&times;</span></div><p>$1 compounded to approximately $5.29 over the saved daily series.</p><div class="case-summary-list"><div class="case-summary-row"><span>Model</span><strong>Linear model + decision matrix</strong></div><div class="case-summary-row"><span>Capacity</span><strong>5 open slots</strong></div><div class="case-summary-row"><span>Entry</span><strong>Limit at previous bar close &minus;5 bp / 9:40 ET</strong></div><div class="case-summary-row"><span>Exit</span><strong>15:59 ET / bounded intraday target</strong></div></div></aside>
+              <aside class="case-summary-panel"><div class="case-summary-label">Final wealth</div><div class="case-summary-value">5.29<span>&times;</span></div><p>$1 compounded to approximately $5.29 over the period of 910 sessions.</p><div class="case-summary-list"><div class="case-summary-row"><span>Model</span><strong>Linear model + decision matrix</strong></div><div class="case-summary-row"><span>Capacity</span><strong>5 open slots</strong></div><div class="case-summary-row"><span>Entry</span><strong>Limit at previous bar close &minus;5 bp / 9:40 ET</strong></div><div class="case-summary-row"><span>Exit</span><strong>15:59 ET / bounded intraday target</strong></div></div></aside>
             </div>
             <div class="case-metrics">
               <div class="case-metric"><div class="case-metric-label">Total return</div><div class="case-metric-value">+429.2%</div><div class="case-metric-note">910-session series</div></div>
@@ -997,10 +997,10 @@ var dailySnapshots = [
           <div class="content-width">
             <div class="section-bar"><div class="eyebrow">02 / Data construction</div></div>
             <div class="case-detail-grid">
-              <article class="case-detail-card"><div class="case-detail-label">01 / Parse</div><h3>Session-aware bars</h3><p>One-minute market bars use UTC as the authoritative join key, New York time for interpretation, and the XNYS calendar for regular and early-close sessions.</p></article>
-              <article class="case-detail-card"><div class="case-detail-label">02 / Prepare</div><h3>Coverage stays observable</h3><p>Duplicate keys, price adjustments, invalid numerics, and regular-session coverage are checked. When a bar is missing, the controlled rule either leaves it null for exclusion or supplies a reliable fallback bar; missing premarket observations are never silently fabricated.</p></article>
-              <article class="case-detail-card"><div class="case-detail-label">03 / Features</div><h3>Feature groups</h3><p>Constructed columns cover market and sector context, premarket return and participation, recent risk, and recent historical price and volume summaries available at the decision time.</p></article>
-              <article class="case-detail-card"><div class="case-detail-label">04 / Target</div><h3>Declared future anchor</h3><p>The 09:30 ET opening print is not used because the opening auction can contain untradable prints and transient noise. The cleaner 09:30 ET close anchors the target, measured through the configured 15:59 ET exit.</p></article>
+              <article class="case-detail-card"><div class="case-detail-label">Parse</div><h3>Session-aware bars</h3><p>One-minute market bars use UTC as the authoritative join key, New York time for interpretation, and the XNYS calendar for regular and early-close sessions.</p></article>
+              <article class="case-detail-card"><div class="case-detail-label">Prepare</div><h3>Coverage stays observable</h3><p>Duplicate keys, price adjustments, invalid numerics, and regular-session coverage are checked. When a bar is missing, the controlled rule either leaves it null for exclusion or supplies a reliable fallback bar; missing premarket observations are never silently fabricated.</p></article>
+              <article class="case-detail-card"><div class="case-detail-label">Features</div><h3>Feature groups</h3><p>Constructed columns cover market and sector context, premarket return and participation, recent risk, and recent historical price and volume summaries available at the decision time.</p></article>
+              <article class="case-detail-card"><div class="case-detail-label">Target</div><h3>Declared future anchor</h3><p>The 09:30 ET opening print is not used because the opening auction can contain untradable prints and transient noise. The cleaner 09:30 ET close anchors the target, measured through the configured 15:59 ET exit.</p></article>
             </div>
           </div>
         </section>
@@ -1010,7 +1010,7 @@ var dailySnapshots = [
             <div class="section-bar"><div class="eyebrow">03 / Model and training</div></div>
             <div class="case-paper-block case-paper-hypothesis">
               <div class="case-paper-block-header"><div><div class="case-paper-label">Hypothesis</div><h3>Hypothesis and empirical test</h3></div></div>
-              <p class="case-paper-copy">Working hypothesis: premarket relative weakness contains information about same-day regular-hours recovery. The design tests whether stocks that have underperformed SPY or their sector before the open subsequently deliver stronger returns from the 09:30 ET close to the 15:59 ET close.</p>
+              <p class="case-paper-copy">Working hypothesis: relative premarket weakness can be used to predict a same-day regular-hours recovery. The design tests whether stocks that have underperformed SPY or their sector before the open subsequently deliver stronger returns from the 09:30 ET close to the 15:59 ET close.</p>
             </div>
 
             <div class="case-paper-block">
@@ -1037,7 +1037,7 @@ var dailySnapshots = [
             <div class="case-paper-block case-paper-specification">
               <div class="case-paper-block-header"><div><div class="case-paper-label">Model specification</div><h3>Regularized linear scoring</h3></div></div>
               <p class="case-paper-copy">The model vector is fitted with Ridge regression to estimate a continuous forward-return score. Its linear mapping keeps feature-to-score relationships interpretable, while L2 regularization shrinks unstable weights when related feature families overlap, improves numerical conditioning, and limits effective model complexity. Coefficient signs and score-bucket monotonicity are reviewed across rolling fits.</p>
-              <p class="case-paper-copy">Missing feature values are imputed only at the model boundary with the controlled zero fallback after the data-construction checks. Cross-sectional normalization centers and scales comparable names within each session, with controlled clipping; market and sector context fields use fixed scales. This removes units and daily level shifts so the estimator compares relative conditions rather than raw price or volume magnitudes. Imputation, scaling, and fitting are refit inside each training window, and no test-period statistics or future observations enter the transformations.</p>
+              <p class="case-paper-copy">After the data checks, missing feature values are either filled with a controlled fallback or left missing and excluded when no reliable value is available. Cross-sectional normalization centers and scales comparable names within each session, with controlled clipping; market and sector context fields use fixed scales. This removes units and daily level shifts so the estimator compares relative conditions rather than raw price or volume magnitudes. Imputation, scaling, and fitting are refit inside each training window, and no test-period statistics or future observations enter the transformations.</p>
               <table class="case-protocol-table"><tbody>
                 <tr><th scope="row">Target</th><td>Forward regular-hours return: 09:30 ET close to 15:59 ET close.</td></tr>
                 <tr><th scope="row">Development</th><td>2023-2025: feature diagnostics and model development. 2026 is left out as the OOS evaluation period.</td></tr>
@@ -1096,7 +1096,7 @@ var dailySnapshots = [
           </div>
         </section>
 
-        <footer class="site-footer"><div class="content-width footer-inner"><div class="brand brand-footer"><span><strong>Independent quantitative research</strong><small>Jie Tang</small></span></div><p class="footer-note">Not investment advice</p></div></footer>
+        <footer class="site-footer"><div class="content-width footer-inner"><div class="brand brand-footer"><span><strong>Independent Quantitative Research</strong><small>Jie Tang</small></span></div><p class="footer-note">Not investment advice</p></div></footer>
       </main>
     `;
   };
