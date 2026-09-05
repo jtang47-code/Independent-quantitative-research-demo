@@ -194,8 +194,7 @@
       .case-chart-controls button + button { border-left: 1px solid var(--line); }
       .case-chart-controls button:hover, .case-chart-controls button:focus-visible, .case-chart-controls .case-chart-control-active { background: var(--navy); color: var(--white); }
       .case-chart-legend { display: flex; align-items: center; flex-wrap: wrap; gap: 15px; margin-top: 15px; color: var(--ink-soft); font-size: 10px; }
-      .case-legend-strategy::before, .case-legend-benchmark::before { display: inline-block; width: 17px; height: 2px; margin: 0 6px 3px 0; background: var(--navy); content: ''; }
-      .case-legend-benchmark::before { background: #9aa6b5; }
+      .case-legend-strategy::before { display: inline-block; width: 17px; height: 2px; margin: 0 6px 3px 0; background: var(--navy); content: ''; }
       .case-chart-note { margin-left: auto; color: #7d8995; }
       .case-chart-frame { min-height: 320px; margin-top: 5px; }
       .case-chart-frame canvas { display: block; width: 100%; height: 320px; }
@@ -274,12 +273,12 @@
       .case-protocol-table td { color: var(--ink-soft); }
       .case-protocol-table code { color: var(--ink); font-size: 10px; overflow-wrap: anywhere; }
       .case-gate-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin-top: 28px; align-items: stretch; }
-      .case-gate-card { min-width: 0; padding: 17px 18px 15px; background: var(--paper); border: 1px solid var(--line); }
+      .case-gate-card { display: flex; min-width: 0; flex-direction: column; padding: 17px 18px 15px; background: var(--paper); border: 1px solid var(--line); }
       .case-gate-card .case-paper-block-header { margin: 0; }
       .case-gate-copy { margin: 15px 0 0; color: var(--ink-soft); font-size: 11.5px; line-height: 1.58; }
       .case-gate-copy strong { color: var(--ink); font-weight: 700; }
       .case-gate-copy code { color: var(--ink); font-size: 10px; overflow-wrap: anywhere; }
-      .case-gate-results { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); margin-top: 14px; }
+      .case-gate-results { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); margin-top: auto; padding-top: 14px; }
       .case-gate-result { min-width: 0; padding: 11px 10px 0; border-right: 1px solid var(--line); }
       .case-gate-result:first-child { padding-left: 0; }
       .case-gate-result:last-child { padding-right: 0; border-right: 0; }
@@ -487,7 +486,7 @@
       <div id="page-view" class="page-view" aria-live="polite"></div>
     </div>
 
-    <script src="premarket-informed.js?v=20260902-2"></script>
+    <script src="premarket-informed.js?v=20260904-2"></script>
     <script>
       (function () {
         var view = document.getElementById('page-view');
@@ -501,8 +500,8 @@
             <section class="home-hero" id="top">
               <div class="content-width home-hero-grid">
                 <div class="home-intro">
-                  <h1>Machine Learning + Rule-Based Decisions for <span>Noisy Markets</span></h1>
-                  <p class="home-lede">I'm an independent quantitative researcher focused on systematic equity strategies. My research involves relationships in fractional, noisy, and incomplete time series data, with linear models and explicit rule-based decision layers to capture potential linear and non-linear links. The process is adaptive across changing regimes, and results are evaluated out of sample under explicit trading frictions using only information available at the decision point.</p>
+                  <h1>Machine Learning + Rule-Based Decisions</span></h1>
+                  <p class="home-lede">I'm an independent quantitative researcher focused on systematic equity strategies. My research involves relationships in fractional and noisy time series data, with linear models and explicit rule-based decision layers to capture potential linear and non-linear links. The process is adaptive across changing regimes, and results are evaluated out of sample under explicit trading frictions using only information available at the decision point.</p>
                   <a class="hero-link" href="#premarket-informed" data-route="premarket-informed">View a research demo <span>&rarr;</span></a>
                 </div>
                 <div class="hero-facts" aria-label="Research pipeline">
