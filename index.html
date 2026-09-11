@@ -105,7 +105,7 @@
       .section { padding: 54px 0; scroll-margin-top: 70px; }
 
       /* Home */
-      .home-hero { position: relative; isolation: isolate; overflow: hidden; background: var(--navy); color: var(--white); }
+      .home-hero { position: relative; isolation: isolate; overflow: visible; background: var(--navy); color: var(--white); }
       .home-hero::before {
         position: absolute; inset: 0; z-index: 0; background-image:
           linear-gradient(to right, rgb(255 254 250 / 12%) 1px, transparent 1px),
@@ -122,6 +122,20 @@
       .hero-link, .case-back { display: inline-flex; align-items: center; gap: 12px; margin-top: 24px; padding-bottom: 6px; border-bottom: 1px solid #6f9cb8; color: var(--white); font-size: 10px; font-weight: 700; letter-spacing: .07em; text-transform: uppercase; }
       .hero-link span, .case-back span { color: var(--signal); font-size: 16px; line-height: .7; }
       .hero-link:hover, .hero-link:focus-visible, .case-back:hover, .case-back:focus-visible { color: var(--blue-soft); border-bottom-color: var(--blue-soft); }
+      .hero-demo-menu { position: relative; display: inline-block; margin-top: 24px; }
+      .hero-demo-trigger { display: inline-flex; align-items: center; gap: 12px; padding: 0 0 6px; background: transparent; border-bottom: 1px solid #6f9cb8; color: var(--white); cursor: pointer; font-size: 11px; font-weight: 700; letter-spacing: .07em; line-height: 1.5; text-transform: uppercase; }
+      .hero-demo-trigger span { color: var(--signal); font-size: 17px; line-height: .7; transition: transform 160ms ease; }
+      .hero-demo-trigger:hover, .hero-demo-trigger:focus-visible { color: var(--blue-soft); border-bottom-color: var(--blue-soft); }
+      .hero-demo-trigger:focus-visible { outline: 1px solid var(--blue-soft); outline-offset: 5px; }
+      .hero-demo-menu-open .hero-demo-trigger span { transform: rotate(45deg); }
+      .hero-demo-dropdown { position: absolute; top: calc(100% + 12px); left: 0; z-index: 12; display: none; width: 300px; padding: 14px 16px 8px; background: var(--paper-light); border: 1px solid var(--line); box-shadow: 0 16px 30px rgb(5 22 42 / 26%); }
+      .hero-demo-menu-open .hero-demo-dropdown { display: block; }
+      .hero-demo-dropdown a { display: flex; align-items: center; justify-content: space-between; gap: 14px; padding: 10px 0 11px; border-top: 1px solid var(--line); color: var(--ink); font-size: 13px; line-height: 1.35; }
+      .hero-demo-copy { display: flex; min-width: 0; flex-direction: column; gap: 3px; }
+      .hero-demo-copy strong { color: inherit; font-size: 13px; font-weight: 400; }
+      .hero-demo-copy small { color: var(--ink-soft); font-size: 11px; line-height: 1.25; }
+      .hero-demo-arrow { color: var(--signal); font-size: 16px; flex: none; }
+      .hero-demo-dropdown a:hover, .hero-demo-dropdown a:focus-visible { color: var(--blue); }
       .hero-facts { align-self: center; border: 0; }
       .scope-flow { position: relative; display: grid; grid-template-columns: minmax(0, 1fr) 26px minmax(0, 1fr) 26px minmax(0, 1fr) 26px minmax(0, 1fr); column-gap: 10px; padding: 0 0 62px; }
       .scope-step { position: relative; min-height: 184px; padding: 17px 10px 15px; background: rgb(255 255 255 / 3%); border: 1px solid rgb(158 201 223 / 35%); border-top: 2px solid var(--blue-soft); box-shadow: inset 0 1px 0 rgb(255 255 255 / 5%), 0 10px 24px rgb(5 22 42 / 14%); }
@@ -208,7 +222,7 @@
       .case-summary-row { display: flex; justify-content: space-between; gap: 12px; padding: 8px 0; border-bottom: 1px solid var(--line); font-size: 10.5px; }
       .case-summary-row span { color: var(--ink-soft); }
       .case-summary-row strong { text-align: right; font-weight: 600; }
-      .case-metrics { display: grid; grid-template-columns: repeat(6, 1fr); margin-top: 12px; border: 1px solid var(--line); background: var(--paper-light); }
+      .case-metrics { display: grid; grid-template-columns: repeat(7, 1fr); margin-top: 12px; border: 1px solid var(--line); background: var(--paper-light); }
       .case-metric { min-height: 84px; padding: 13px 14px 10px; border-right: 1px solid var(--line); }
       .case-metric:last-child { border-right: 0; }
       .case-metric-value { margin-top: 10px; font-family: 'Times New Roman', Times, serif; font-size: 25px; letter-spacing: -.04em; line-height: 1; }
@@ -222,8 +236,16 @@
       .case-period-table thead th:first-child { text-align: left; }
       .case-period-table tbody th { color: var(--ink-soft); font-weight: 600; text-align: left; }
       .case-period-table tbody td { color: var(--ink); font-family: Arial, Helvetica, sans-serif; font-size: 11px; font-weight: 700; letter-spacing: .04em; text-align: right; white-space: nowrap; }
+      .case-evaluation-card { overflow-x: auto; }
+      .case-evaluation-table { min-width: 0; width: 100%; }
+      .case-evaluation-table th, .case-evaluation-table td { text-align: left; vertical-align: top; line-height: 1.45; }
+      .case-evaluation-table thead th { color: var(--blue); font-size: 9px; letter-spacing: .08em; text-transform: uppercase; }
+      .case-evaluation-table tbody th { width: 185px; color: var(--ink); font-weight: 600; }
+      .case-evaluation-table tbody td:nth-child(2) { width: 160px; color: var(--ink); font-weight: 700; white-space: nowrap; }
       .case-period-note { margin: 7px 14px 9px; color: #7d8995; font-size: 10px; line-height: 1.5; }
       .case-matrix-grid { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(260px, .7fr); gap: 12px; margin-top: 12px; }
+      .case-matrix-grid.case-performance-matrix-grid { grid-template-columns: minmax(0, .88fr) minmax(0, 1.12fr); }
+      .case-matrix-grid.case-sizing-components-grid { grid-template-columns: 1fr; }
       .case-matrix-card { padding: 15px 16px 12px; }
       .case-matrix-card .card-overline { color: var(--blue); }
       table { width: 100%; border-collapse: collapse; }
@@ -235,13 +257,20 @@
       .case-note-block { padding: 16px 17px; }
       .case-note-block h3 { margin: 0; font-size: 15px; }
       .case-note-block p { margin: 10px 0 0; color: var(--ink-soft); font-size: 11.5px; line-height: 1.55; }
+      .case-regime-grid h3 { margin-top: 8px; }
       .fine-print { color: #7d8995 !important; font-size: 10px !important; }
 
       .case-detail-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+      .case-data-detail-grid { margin-top: 18px; }
       .case-detail-card { min-height: 178px; padding: 16px 16px 14px; background: var(--paper-light); border: 1px solid var(--line); }
       .case-detail-label { color: var(--signal); }
       .case-detail-card h3 { margin: 23px 0 0; font-size: 15px; line-height: 1.25; }
       .case-detail-card p { margin: 9px 0 0; color: var(--ink-soft); font-size: 11.5px; line-height: 1.55; }
+      .case-attribution-grid { margin-top: 18px; }
+      .case-attribution-grid .case-detail-card, .case-greek-attribution-grid .case-detail-card { min-height: 150px; }
+      .case-lifecycle-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); margin-top: 20px; }
+      .case-lifecycle-grid .case-detail-card { min-height: 214px; }
+      .case-lifecycle-grid code { color: var(--ink); font-size: 10px; overflow-wrap: anywhere; }
       .case-paper-heading { margin-bottom: 14px; }
       .case-paper-heading h2 { max-width: none; font-size: clamp(1.75rem, 2.5vw, 2.35rem); }
       .case-paper-heading p { max-width: 820px; font-size: 13px; line-height: 1.65; }
@@ -267,6 +296,8 @@
       .case-evidence-table tbody td:nth-child(n+3) { white-space: nowrap; }
       .case-evidence-table code { color: var(--ink); font-size: 9px; overflow-wrap: anywhere; }
       .case-table-note { margin: 11px 0 0; color: #7d8995; font-size: 10px; line-height: 1.55; }
+      .case-model-footnotes { margin-top: 15px; padding-top: 11px; border-top: 1px solid var(--line); color: #7d8995; font-size: 10px; line-height: 1.55; }
+      .case-model-footnotes p { margin: 0; }
       .case-paper-copy { max-width: 870px; margin: 17px 0 0; color: var(--ink-soft); font-size: 12px; line-height: 1.65; }
       .case-protocol-table { margin-top: 20px; border-top: 1px solid var(--line); }
       .case-protocol-table th, .case-protocol-table td { padding: 10px 8px; border-bottom: 1px solid var(--line); font-size: 11px; line-height: 1.5; text-align: left; vertical-align: top; }
@@ -406,6 +437,7 @@
         .nav-demo-menu:focus-within .nav-dropdown, .nav-demo-menu.nav-demo-menu-open .nav-dropdown { opacity: 1; pointer-events: auto; transform: translateY(0); }
         .home-hero-grid { display: block; min-height: 0; padding: 47px 0 31px; }
         .home-hero h1 { font-size: clamp(2.55rem, 9.4vw, 3.45rem); }
+        .hero-demo-dropdown { width: min(300px, calc(100vw - 36px)); }
         .hero-facts { margin-top: 36px; }
         .scope-flow { grid-template-columns: minmax(0, 1fr) 20px minmax(0, 1fr) 20px minmax(0, 1fr) 20px minmax(0, 1fr); column-gap: 4px; padding: 0 0 51px; }
         .scope-step { min-height: 145px; padding: 13px 4px 12px; }
@@ -418,7 +450,7 @@
         .scope-flow::before { right: calc((100% - 84px) / 8 - 1px); bottom: 20px; left: calc((100% - 84px) / 8 - 1px); }
         .home-method-head, .case-title-row, .case-matrix-grid, .case-risk-layout { display: block; }
         .method-grid, .case-detail-grid { grid-template-columns: 1fr; }
-        .method-card, .case-detail-card { min-height: auto; }
+        .method-card, .case-detail-card, .case-attribution-grid .case-detail-card, .case-greek-attribution-grid .case-detail-card { min-height: auto; }
         .footer-inner, .case-toolbar, .case-section-heading { align-items: start; flex-direction: column; }
         .footer-right { align-items: flex-start; flex-direction: column; gap: 8px; margin-left: 0; }
         .footer-note { margin: 0; text-align: left; }
@@ -459,6 +491,52 @@
         .case-risk-layout > div > p { margin-bottom: 25px; }
         .footer-inner { gap: 10px; }
       }
+      .case-model-table { min-width: 1040px; }
+      .case-model-table .case-evidence-feature { width: 190px; }
+      .case-model-table .case-evidence-definition { width: 430px; }
+      .case-model-table .case-evidence-stat { width: 68px; }
+      .case-model-table thead th:first-child, .case-model-table thead th:nth-child(2), .case-model-table tbody th { text-align: left; }
+      .case-model-table thead th:nth-child(n+3), .case-model-table tbody td:nth-child(n+3) { text-align: center; }
+      .case-model-table tbody td:nth-child(2) { text-align: left; white-space: normal; }
+      .case-model-table tbody td:nth-child(n+3) { white-space: nowrap; }
+      .case-selected-row th, .case-selected-row td { background: #e6eef3; color: var(--ink); }
+      .case-formula { margin-top: 24px; padding: 20px 22px; overflow-x: auto; background: var(--navy); border: 1px solid var(--navy); color: var(--white); }
+      .case-formula code { color: var(--white); font-family: 'Times New Roman', Times, serif; font-size: 24px; white-space: nowrap; }
+      .case-setting-table { margin-top: 20px; overflow-x: auto; border-top: 1px solid var(--line); }
+      .case-setting-table table { min-width: 780px; }
+      .case-setting-table th, .case-setting-table td { padding: 10px 8px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; line-height: 1.5; }
+      .case-setting-table thead th { color: var(--blue); font-size: 9px; letter-spacing: .1em; text-transform: uppercase; }
+      .case-setting-table tbody th { width: 175px; color: var(--ink); font-weight: 600; }
+      .case-setting-table tbody td { color: var(--ink-soft); }
+      .case-setting-table tbody td:nth-child(2) { width: 180px; color: var(--ink); font-weight: 700; white-space: nowrap; }
+      .case-option-book-card, .case-attribution-grid .case-detail-card:first-child { background: #e6eef3; border-color: var(--blue-soft); border-top: 3px solid var(--blue); }
+      .case-greek-connectors { position: relative; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; height: 88px; margin-top: 4px; color: #6e94b0; }
+      .case-greek-connectors::before { position: absolute; top: 40px; left: calc(12.5% - 3.75px); right: calc(12.5% - 3.75px); border-top: 1px solid currentColor; content: ''; }
+      .case-greek-branch { position: relative; justify-self: center; width: 1px; height: 42px; margin-top: 40px; background: currentColor; }
+      .case-greek-branch:first-child::before { position: absolute; top: -40px; left: 0; width: 1px; height: 40px; background: currentColor; content: ''; }
+      .case-greek-branch::after { position: absolute; bottom: -1px; left: -3px; width: 6px; height: 6px; border-right: 1px solid currentColor; border-bottom: 1px solid currentColor; transform: rotate(45deg); content: ''; }
+      .case-greek-connectors-label { position: absolute; z-index: 1; top: 40px; left: 50%; transform: translate(-50%, -50%); padding: 5px 16px; background: var(--paper); color: var(--blue); font-size: 11px; font-weight: 500; letter-spacing: .025em; line-height: 1.4; text-align: center; white-space: nowrap; }
+      .case-greek-attribution-grid { margin-top: 0; }
+      .case-greek-card { border-top: 2px solid var(--blue-soft); }
+      .case-regime-body { max-width: 900px; margin-top: 17px; color: var(--ink-soft); font-size: 12.5px; line-height: 1.65; }
+      .case-regime-body p { margin: 0; }
+      .case-regime-body p + p { margin-top: 12px; }
+      .case-verdict { margin-top: 30px; padding: 21px 22px 19px; border: 1px solid var(--line-dark); background: rgb(255 255 255 / 7%); }
+      .case-verdict .case-paper-label { color: var(--blue-soft); }
+      .case-verdict h3 { margin: 8px 0 0; color: var(--white); font-size: 20px; font-weight: 600; }
+      .case-verdict p { max-width: 800px; margin: 9px 0 0; color: #c7d5df; font-size: 12px; line-height: 1.6; }
+      @media (max-width: 700px) {
+        .case-formula code { font-size: 18px; }
+        .case-verdict h3 { font-size: 17px; }
+      }
+      @media (max-width: 900px) {
+        .case-greek-connectors { display: block; height: auto; margin: 26px 0 16px; }
+        .case-greek-connectors::before, .case-greek-connectors::after, .case-greek-branch { display: none; }
+        .case-greek-connectors-label { position: static; transform: none; padding: 0; text-align: left; white-space: normal; }
+        .case-greek-attribution-grid { padding-left: 16px; border-left: 1px solid #6e94b0; }
+        .case-greek-card { position: relative; }
+        .case-greek-card::before { position: absolute; left: -17px; top: 24px; width: 16px; border-top: 1px solid #6e94b0; content: ''; }
+      }
       @media (prefers-reduced-motion: reduce) {
         html { scroll-behavior: auto; }
         .page-view.view-leaving, .page-view.view-entering { transition: none; animation: none; }
@@ -478,6 +556,7 @@
             <div class="nav-dropdown" id="demo-dropdown">
               <div class="dropdown-kicker">Available study</div>
               <a href="#premarket-informed" data-route="premarket-informed">Premarket-to-Intraday Ranking <span>&rarr;</span></a>
+              <a href="#long-straddle" data-route="long-straddle">Long Straddle with HAR Variance Forecasting <span>&rarr;</span></a>
             </div>
           </div>
         </nav>
@@ -488,6 +567,7 @@
     </div>
 
     <script src="premarket-informed.js?v=20260904-2"></script>
+    <script src="long-straddle.js?v=20260908-1"></script>
     <script>
       (function () {
         var view = document.getElementById('page-view');
@@ -501,19 +581,26 @@
             <section class="home-hero" id="top">
               <div class="content-width home-hero-grid">
                 <div class="home-intro">
-                  <h1>Machine Learning + Rule-Based Decisions</span></h1>
-                  <p class="home-lede">I'm an independent quantitative researcher focused on systematic equity strategies. My research involves relationships in fragmented and noisy time series data, with linear models and explicit rule-based decision layers to capture potential linear and non-linear links. The process is adaptive across changing regimes, and results are evaluated out of sample under explicit trading frictions using only information available at the decision point.</p>
-                  <a class="hero-link" href="#premarket-informed" data-route="premarket-informed">View a research demo <span>&rarr;</span></a>
+                  <h1>From Signal to Execution</span></h1>
+                  <p class="home-lede">I’m an independent quantitative researcher studying systematic relationships across equities, volatility, and derivatives. My work combines interpretable statistical and machine-learning models with explicit decision, risk, and execution rules to test whether an economic relationship survives realistic implementation. Research is evaluated on held-out or walk-forward data using only information available at the decision point, with trading frictions and implementation constraints incorporated into the analysis.</p>
+                  <div class="hero-demo-menu">
+                    <button class="hero-demo-trigger" type="button" aria-expanded="false" aria-controls="home-demo-dropdown" data-hero-demo-trigger>View research demos <span>+</span></button>
+                    <div class="hero-demo-dropdown" id="home-demo-dropdown">
+                      <div class="dropdown-kicker">Available study</div>
+                      <a href="#premarket-informed" data-route="premarket-informed"><span class="hero-demo-copy"><strong>Premarket-to-Intraday Ranking</strong><small>Equities</small></span><span class="hero-demo-arrow">&rarr;</span></a>
+                      <a href="#long-straddle" data-route="long-straddle"><span class="hero-demo-copy"><strong>Long Straddle with HAR Variance Forecasting</strong><small>Options / volatility</small></span><span class="hero-demo-arrow">&rarr;</span></a>
+                    </div>
+                  </div>
                 </div>
                 <div class="hero-facts" aria-label="Research pipeline">
                     <div class="scope-flow">
-                      <div class="scope-step"><span class="scope-step-index">01</span><div class="scope-step-label">Inputs</div><strong>Fragmented time-series observations</strong></div>
+                      <div class="scope-step"><span class="scope-step-index">01</span><div class="scope-step-label">Inputs</div><strong>Market, volatility and time-series observations</strong></div>
                       <span class="scope-arrow" aria-hidden="true"><svg viewBox="0 0 32 24" focusable="false"><path d="M3 12h21M17 5l7 7-7 7"></path></svg></span>
-                      <div class="scope-step"><span class="scope-step-index">02</span><div class="scope-step-label">Model + rules</div><strong>Linear model and Rule-based decision matrix</strong></div>
+                      <div class="scope-step"><span class="scope-step-index">02</span><div class="scope-step-label">Model + rules</div><strong>Statistical models and explicit decision rules</strong></div>
                       <span class="scope-arrow" aria-hidden="true"><svg viewBox="0 0 32 24" focusable="false"><path d="M3 12h21M17 5l7 7-7 7"></path></svg></span>
-                      <div class="scope-step"><span class="scope-step-index">03</span><div class="scope-step-label">Outputs</div><strong>Ranked candidates and trade decisions</strong></div>
+                      <div class="scope-step"><span class="scope-step-index">03</span><div class="scope-step-label">Outputs</div><strong>Signals, positions and trade decisions</strong></div>
                       <span class="scope-arrow" aria-hidden="true"><svg viewBox="0 0 32 24" focusable="false"><path d="M3 12h21M17 5l7 7-7 7"></path></svg></span>
-                      <div class="scope-step"><span class="scope-step-index">04</span><div class="scope-step-label">Evaluation</div><strong>Out-of-sample, execution-aware results</strong></div>
+                      <div class="scope-step"><span class="scope-step-index">04</span><div class="scope-step-label">Evaluation</div><strong>Holdout / walk-forward, execution-aware results</strong></div>
                     </div>
                 </div>
               </div>
@@ -526,7 +613,7 @@
                 </div>
                 <div class="method-grid">
                   <article class="method-card"><div class="card-overline">01 / Economic connection</div><h3>Model a defined relationship</h3><p>Features are tied to an economic hypothesis and a stated performance target. Statistical association alone is not sufficient evidence.</p></article>
-                  <article class="method-card"><div class="card-overline">02 / Estimation + rules</div><h3>Combine linear estimates with rules</h3><p>A linear model provides an interpretable estimate. Ranking, thresholds, and execution conditions map it to discrete decisions.</p></article>
+                  <article class="method-card"><div class="card-overline">02 / Estimation + rules</div><h3>Combine model estimates with rules</h3><p>Interpretable models provide forecasts or relative estimates. Ranking, thresholds, and execution conditions map it to discrete decisions.</p></article>
                   <article class="method-card"><div class="card-overline">03 / Information integrity</div><h3>Enforce the information boundary</h3><p>Timestamps, missingness, target construction, normalization, leakage, and overfit controls are specified before performance is evaluated.</p></article>
                   <article class="method-card"><div class="card-overline">04 / Execution</div><h3>Measure the trade, not just the signal</h3><p>Order type, fillability, system latency, spread, and capacity are part of the simulation. A return is useful only after its execution assumptions are stated.</p></article>
                 </div>
@@ -538,7 +625,8 @@
         `;
 
         function currentRoute() {
-          return window.location.hash.replace('#', '') === 'premarket-informed' ? 'premarket-informed' : 'home';
+          var route = window.location.hash.replace('#', '');
+          return route === 'premarket-informed' || route === 'long-straddle' ? route : 'home';
         }
 
         function closeMenus() {
@@ -548,8 +636,23 @@
           demoTrigger.setAttribute('aria-expanded', 'false');
         }
 
+        function initHomeDemo() {
+          var heroDemoTrigger = view.querySelector('[data-hero-demo-trigger]');
+          if (!heroDemoTrigger) return;
+          heroDemoTrigger.addEventListener('click', function (event) {
+            event.preventDefault();
+            var heroDemoMenu = heroDemoTrigger.parentElement;
+            var heroDemoOpen = heroDemoMenu.classList.toggle('hero-demo-menu-open');
+            heroDemoTrigger.setAttribute('aria-expanded', String(heroDemoOpen));
+          });
+        }
+
         function paint(route, animate) {
-          var markup = route === 'premarket-informed' && window.premarketInformedView ? window.premarketInformedView() : homeMarkup;
+          var markup = route === 'premarket-informed' && window.premarketInformedView
+            ? window.premarketInformedView()
+            : route === 'long-straddle' && window.longStraddleView
+              ? window.longStraddleView()
+              : homeMarkup;
           if (animate) {
             view.classList.add('view-leaving');
             window.setTimeout(function () {
@@ -559,11 +662,15 @@
               void view.offsetWidth;
               view.classList.add('view-entering');
               if (route === 'premarket-informed' && window.initPremarketInformed) window.initPremarketInformed();
+              if (route === 'long-straddle' && window.initLongStraddle) window.initLongStraddle();
+              if (route === 'home') initHomeDemo();
               window.scrollTo({ top: 0, behavior: 'auto' });
             }, 220);
           } else {
             view.innerHTML = markup;
             if (route === 'premarket-informed' && window.initPremarketInformed) window.initPremarketInformed();
+            if (route === 'long-straddle' && window.initLongStraddle) window.initLongStraddle();
+            if (route === 'home') initHomeDemo();
           }
           closeMenus();
         }
