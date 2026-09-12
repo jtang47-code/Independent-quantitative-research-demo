@@ -2030,7 +2030,7 @@ var spyEquityCurve = [
           </div>
         </section>
 
-        <footer class="site-footer"><div class="content-width footer-inner"><div class="brand brand-footer"><span><strong>Independent Quantitative Research</strong><small>Jie Tang</small></span></div><div class="footer-right"><nav class="footer-links" aria-label="Contact links"><a href="https://www.linkedin.com/in/jie-tang-06983a15/">LinkedIn</a><a href="mailto:tang.jieworking@outlook.com">tang.jieworking@outlook.com</a></nav><p class="footer-note">Not investment advice</p></div></div></footer>
+        <footer class="site-footer"><div class="content-width footer-inner"><div class="brand brand-footer"><span><strong>Independent Quantitative Research</strong><small>Jie Tang</small></span></div><div class="footer-right"><nav class="footer-links" aria-label="Contact links"><a href="https://www.linkedin.com/in/jie-tang-06983a15a/">LinkedIn</a><a href="mailto:tang.jieworking@outlook.com">tang.jieworking@outlook.com</a></nav><p class="footer-note">Not investment advice</p></div></div></footer>
       </main>
     `;
   };
