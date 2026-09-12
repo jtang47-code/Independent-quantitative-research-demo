@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#102f55">
-    <meta name="description" content="Independent Quantitative Research by Jie Tang on linear models, rule-based decisions, and real execution.">
+    <meta name="description" content="Independent Quantitative Research by Jie Tang">
     <title>Independent Quantitative Research — Jie Tang</title>
     <style>
 
@@ -554,7 +554,7 @@
           <div class="nav-demo-menu">
             <button class="nav-demo-trigger" type="button" aria-expanded="false" aria-controls="demo-dropdown">Research demos <span>+</span></button>
             <div class="nav-dropdown" id="demo-dropdown">
-              <div class="dropdown-kicker">Available study</div>
+              <div class="dropdown-kicker">Available studies</div>
               <a href="#premarket-informed" data-route="premarket-informed">Premarket-to-Intraday Ranking <span>&rarr;</span></a>
               <a href="#long-straddle" data-route="long-straddle">Long Straddle with HAR Variance Forecasting <span>&rarr;</span></a>
             </div>
@@ -566,8 +566,8 @@
       <div id="page-view" class="page-view" aria-live="polite"></div>
     </div>
 
-    <script src="premarket-informed.js?v=20260904-2"></script>
-    <script src="long-straddle.js?v=20260908-1"></script>
+    <script src="premarket-informed.js?v=20260912-1"></script>
+    <script src="long-straddle.js?v=20260912-1"></script>
     <script>
       (function () {
         var view = document.getElementById('page-view');
@@ -581,12 +581,12 @@
             <section class="home-hero" id="top">
               <div class="content-width home-hero-grid">
                 <div class="home-intro">
-                  <h1>From Signal to Execution</span></h1>
+                  <h1>From Signal to Execution</h1>
                   <p class="home-lede">I’m an independent quantitative researcher studying systematic relationships across equities, volatility, and derivatives. My work combines interpretable statistical and machine-learning models with explicit decision, risk, and execution rules to test whether an economic relationship survives realistic implementation. Research is evaluated on held-out or walk-forward data using only information available at the decision point, with trading frictions and implementation constraints incorporated into the analysis.</p>
                   <div class="hero-demo-menu">
                     <button class="hero-demo-trigger" type="button" aria-expanded="false" aria-controls="home-demo-dropdown" data-hero-demo-trigger>View research demos <span>+</span></button>
                     <div class="hero-demo-dropdown" id="home-demo-dropdown">
-                      <div class="dropdown-kicker">Available study</div>
+                      <div class="dropdown-kicker">Available studies</div>
                       <a href="#premarket-informed" data-route="premarket-informed"><span class="hero-demo-copy"><strong>Premarket-to-Intraday Ranking</strong><small>Equities</small></span><span class="hero-demo-arrow">&rarr;</span></a>
                       <a href="#long-straddle" data-route="long-straddle"><span class="hero-demo-copy"><strong>Long Straddle with HAR Variance Forecasting</strong><small>Options / volatility</small></span><span class="hero-demo-arrow">&rarr;</span></a>
                     </div>
@@ -613,7 +613,7 @@
                 </div>
                 <div class="method-grid">
                   <article class="method-card"><div class="card-overline">01 / Economic connection</div><h3>Model a defined relationship</h3><p>Features are tied to an economic hypothesis and a stated performance target. Statistical association alone is not sufficient evidence.</p></article>
-                  <article class="method-card"><div class="card-overline">02 / Estimation + rules</div><h3>Combine model estimates with rules</h3><p>Interpretable models provide forecasts or relative estimates. Ranking, thresholds, and execution conditions map it to discrete decisions.</p></article>
+                  <article class="method-card"><div class="card-overline">02 / Estimation + rules</div><h3>Combine model estimates with rules</h3><p>Interpretable models provide forecasts or relative estimates. Ranking, thresholds, and execution conditions map those estimates to discrete decisions.</p></article>
                   <article class="method-card"><div class="card-overline">03 / Information integrity</div><h3>Enforce the information boundary</h3><p>Timestamps, missingness, target construction, normalization, leakage, and overfit controls are specified before performance is evaluated.</p></article>
                   <article class="method-card"><div class="card-overline">04 / Execution</div><h3>Measure the trade, not just the signal</h3><p>Order type, fillability, system latency, spread, and capacity are part of the simulation. A return is useful only after its execution assumptions are stated.</p></article>
                 </div>
